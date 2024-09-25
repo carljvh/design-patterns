@@ -1,2 +1,6 @@
 mypy
 ruff
+numpy
+plotly-express
+pandas
+pandas-stubs

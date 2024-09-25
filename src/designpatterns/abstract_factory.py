@@ -11,14 +11,13 @@ Use the Abstract Factory when:
     * you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
 """
 
-class AbstractMovie(ABC):
 
+class AbstractMovie(ABC):
     @abstractmethod
     def play(self) -> str: ...
 
 
 class TropicThunder(AbstractMovie):
-
     def play(self) -> str:
         return """
         I know who I am. I'm the dude playin' the dude, disguised as another dude!
@@ -26,21 +25,19 @@ class TropicThunder(AbstractMovie):
 
 
 class AmericanPsycho(AbstractMovie):
-
     def play(self) -> str:
-        return  """
+        return """
         Now let's see Paul Allen's card. Look at that subtle off-white coloring. The tasteful thickness of it. 
         Oh, my God. It even has a watermark.
         """
 
-class AbstractSnacks(ABC):
 
+class AbstractSnacks(ABC):
     @abstractmethod
     def stuff_face(self) -> str: ...
 
 
 class JellyBeans(AbstractSnacks):
-
     def stuff_face(self) -> str:
         return """
         Washing a pack of \"Jelly Beans\" down with some delicious Booty Sweat\u2122...
@@ -48,7 +45,6 @@ class JellyBeans(AbstractSnacks):
 
 
 class DorsiaTakeaway(AbstractSnacks):
-
     def stuff_face(self) -> str:
         return """
         Gulping down the duck canette while you ponder why you couldn't get a reservation...
@@ -56,7 +52,6 @@ class DorsiaTakeaway(AbstractSnacks):
 
 
 class AbstractMovieNightFactory(ABC):
-
     @abstractmethod
     def create_movie(self) -> AbstractMovie: ...
 
@@ -65,19 +60,17 @@ class AbstractMovieNightFactory(ABC):
 
 
 class ComedyMovieNightFactory(AbstractMovieNightFactory):
-
     def create_movie(self) -> AbstractMovie:
         return TropicThunder()
-    
+
     def create_snacks(self) -> AbstractSnacks:
         return JellyBeans()
 
 
 class ThrillerMovieNightFactory(AbstractMovieNightFactory):
-
     def create_movie(self) -> AbstractMovie:
         return AmericanPsycho()
-    
+
     def create_snacks(self) -> AbstractSnacks:
         return DorsiaTakeaway()
 
